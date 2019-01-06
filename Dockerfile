@@ -12,7 +12,10 @@ ADD apache-tomcat-7.0.92 /usr/local/tomcat/
 
 ENV PATH $PATH:/usr/local/java/bin
 
-RUN mvn test-compile\
+ADD pom.xml /tmp/build/
+ADD src /tmp/build/src
+
+RUN cd /tmp/build && mvn test-compile\
        
         && mv target/yxr.war /apache-tomcat-7.0.92/webapps/yxr.war \
         
