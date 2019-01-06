@@ -15,13 +15,12 @@ ENV PATH $PATH:/usr/local/java/bin
 ADD pom.xml /tmp/build/
 ADD src /tmp/build/src
 
-RUN cd /tmp/build && mvn install\
-       
+RUN cd /tmp/build && mvn install \    
         && mv target/yxr.war /usr/local/tomcat/webapps/yxr.war \
-        && mv target/yxr /usr/local/tomcat/webapps/yxr \
-        
+        && mv target/yxr /usr/local/tomcat/webapps/yxr \   
         && cd / && rm -rf /tmp/build
-
+RUN cd /usr/local/tomcat/bin \
+        && chmod +x catalina.sh &&  chmod +x startup.sh
 #Expose http port
 EXPOSE 8080
 
