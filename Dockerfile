@@ -15,9 +15,9 @@ ENV PATH $PATH:/usr/local/java/bin
 ADD pom.xml /tmp/build/
 ADD src /tmp/build/src
 
-RUN cd /tmp/build && mvn test-compile\
+RUN cd /tmp/build && mvn install\
        
-        && mv target/yxr.war /apache-tomcat-7.0.92/webapps/yxr.war \
+        && mv target/yxr.war /usr/local/tomcat/webapps/yxr.war \
         
         && cd / && rm -rf /tmp/build
 
