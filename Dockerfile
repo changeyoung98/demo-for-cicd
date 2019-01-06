@@ -18,6 +18,7 @@ ADD src /tmp/build/src
 RUN cd /tmp/build && mvn install\
        
         && mv target/yxr.war /usr/local/tomcat/webapps/yxr.war \
+        && mv target/yxr /usr/local/tomcat/webapps/yxr \
         
         && cd / && rm -rf /tmp/build
 
