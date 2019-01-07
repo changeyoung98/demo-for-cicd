@@ -11,6 +11,10 @@ ADD jdk1.8.0_191 /usr/local/java/
 ADD apache-tomcat-7.0.92 /usr/local/tomcat/
 
 ENV PATH $PATH:/usr/local/java/bin
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $PATH:$CATALINA_HOME/bin
+RUN mkdir -p $CATALINA_HOME
+
 
 ADD pom.xml /tmp/build/
 ADD src /tmp/build/src
